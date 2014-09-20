@@ -75,16 +75,18 @@ function buscardatosHistoricos(ema) {
 
 function comparaFecha(dd,mm,aa,hh,min){
     var fechaActual = new Date(); 
+    var diferencia=new Date();
     aa=aa+2000;
-    alert(aa+'/'+mm-1+'/'+dd+'  '+hh+':'+min);
-    var fechaFin = new Date(aa,mm-1,dd,hh,min);
+    mm=mm-1;
+    var fechaFin = new Date(aa,mm,dd,hh,min);
    // var fechaFin = mm + "/" + dd + "/" + aa;
-    var diferencia=fechaActual-fechaFin;
-    var texto="FA:"+fechaActual+'\nFF:'+fechaFin+'\nDif:'+diferencia;
+    var diferencia= fechaActual.getTime() - fechaFin.getTime();
+    var difHoras = Math.floor(diferencia / (1000 * 60 * 60 )) 
+    var texto="FA:"+fechaActual+'\nFF:'+fechaFin+'\nDif:'+difHoras;
     alert (texto);
-    if(diferencia<3){ 
-                  return true; 
+    if(difHoras<3){ 
                   alert("paso >3");
+                  return true;                 
          } else { alert("La EMA esta Fuera de Servicio");
                  return false;}
       }
@@ -123,8 +125,8 @@ function parserHistorico(contenido) {
     if(filas.length<25){
         return true;
     }
-    numerofila = filas.length - 2
-    ultima = parserHistoricolinea(filas, numerofila)
+    numerofila = filas.length - 2;
+    ultima = parserHistoricolinea(filas, numerofila);
     fecha=ultima[0];
     dia=parseInt(fecha.substr(0, 2),10);
     mes=parseInt(fecha.substr(3, 2),10);
