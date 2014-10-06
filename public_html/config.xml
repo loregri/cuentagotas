@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.CuentaGOTAS" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.phonegap.CuentaGOTAS" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+>
     <name>CuentaGOTAS</name>
     <description>
         Calculadora de riego del INTA Alto Valle - Cooperación Facultad de Informática - UNComahue
@@ -8,7 +10,7 @@
         Lorena Gonzalez - Daniel Toth
     </author>
     <preference name="permissions" value="none" />
-    <preference name="phonegap-version" value="3.5.0" />
+    <preference name="phonegap-version" value="2.9" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="false" />
@@ -47,8 +49,8 @@
     <icon gap:platform="android" gap:qualifier="mdpi" src="images/cuentagotas_48.png" />
     <icon gap:platform="android" gap:qualifier="hdpi" src="images/cuentagotas_96.png" />
     <icon gap:platform="android" gap:qualifier="xhdpi" src="images/cuentagotas_96.png" />
-    <icon gap:platform="blackberry" src="images/icon-80.png" />
-    <icon gap:platform="blackberry" gap:state="hover" src="images/cuentagotas_96.png" />
+    <icon gap:platform="blackberry"  />
+    <icon gap:platform="blackberry" gap:state="hover"  src="images/cuentagotas_96.png"/>
     <icon gap:platform="ios" height="57" src="images/cuentagotas_96.png" width="57" />
     <icon gap:platform="ios" height="72" src="images/cuentagotas_96.png" width="72" />
     <icon gap:platform="ios" height="114" src="res/icon/ios/icon-57-2x.png" width="114" />
@@ -60,15 +62,33 @@
     <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/screen/android/screen-mdpi-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="res/screen/android/screen-hdpi-portrait.png" />
     <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="res/screen/android/screen-xhdpi-portrait.png" />
-    <gap:splash gap:platform="blackberry" src="res/screen/blackberry/screen-225.png" />
+
     <gap:splash gap:platform="ios" height="480" src="res/screen/ios/screen-iphone-portrait.png" width="320" />
     <gap:splash gap:platform="ios" height="960" src="res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
     <gap:splash gap:platform="ios" height="1136" src="res/screen/ios/screen-iphone-portrait-568h-2x.png" width="640" />
     <gap:splash gap:platform="ios" height="1024" src="res/screen/ios/screen-ipad-portrait.png" width="768" />
     <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
+    <gap:platform name="blackberry" />
     <feature id="blackberry.app"          required="true" version="1.0.0.0" />
     <feature id="blackberry.app.event"    required="true" version="1.0.0.0" />
     <feature id="blackberry.system.event" required="true" version="1.0.0.0" />
+    <feature id="blackberry.system" required="true" version="1.0.0.0" />
+    <feature id="blackberry.identity" required="true" version="1.0.0.0" />
+    <feature id="blackberry.app" required="true" version="1.0.0.0" />
+    <feadddture id="blackberry.connection" />
+    <feature id="blackberry.ui.toast" />
+    <feature id="blackberry.ui.dialog" />
+    <feature id="blackberry.invoke" />
+    <feature id="blackberry.invoke.card" />
+    
+    <feature id="blackberry.app">
+        <param name="orientation" value="portrait" />
+    </feature>  
+     <rim:permissions>
+        <rim:permit>read_geolocation</rim:permit> 
+
+    </rim:permissions>
     <access origin="*" />
+    <access uri="*" subdomains="true" />
 </widget>
